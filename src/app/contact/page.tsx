@@ -29,12 +29,18 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          access_key: "8d8ca2da-d766-4f1b-8697-b648059506a4",
+          subject: `New inquiry from ${data.name} — ${data.service}`,
+          from_name: "Syntrix Contact Form",
+          ...data,
+        }),
       });
-      if (res.ok) setSubmitted(true);
+      const result = await res.json();
+      if (result.success) setSubmitted(true);
     } catch {
       // silent
     }
