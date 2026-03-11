@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Syntrix
+
+AI Agency + Digital Marketing + Software Tools — Building the future with intelligent solutions.
+
+**Live:** [syntrixagency.vercel.app](https://syntrixagency.vercel.app)
+
+## About
+
+Syntrix is a full-service agency offering AI solutions, digital marketing, and custom software development. Founded in 2021, we've delivered 150+ projects across 10+ countries.
+
+### Services
+
+- **AI Agency** — Custom AI models, NLP, computer vision, chatbots, predictive analytics
+- **Digital Marketing** — Social media, SEO, paid ads, email automation, brand strategy
+- **Software Tools** — Web apps, SaaS products, APIs, developer tools, cloud infrastructure
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Animations:** Motion (Framer Motion)
+- **Forms:** React Hook Form + Zod
+- **Content:** MDX blog system
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/your-org/syntrix.git
+cd syntrix
+npm install
+```
+
+### Environment Variables
+
+Copy the example env file and fill in your values:
+
+```bash
+cp .env.example .env.local
+```
+
+Required variables:
+
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_WEB3FORMS_KEY` | [Web3Forms](https://web3forms.com/) access key for the contact form |
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/            # Next.js App Router pages
+├── components/
+│   ├── layout/     # Navbar, Footer, Logo, PageHeader
+│   ├── ui/         # Buttons, Cards, Inputs
+│   ├── sections/   # Page sections (Hero, Features, etc.)
+│   ├── animations/ # Animation wrappers
+│   └── backgrounds/# Background effects
+├── data/           # Services, projects, team, navigation
+├── lib/            # Utils, constants, fonts, validations
+├── types/          # TypeScript interfaces
+└── hooks/          # Custom React hooks
+content/
+└── blog/           # MDX blog posts
+public/
+└── assets/         # Images, logos, team photos
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Description |
+|-------|-------------|
+| `/` | Home — hero, services overview, featured projects |
+| `/about` | Company story, mission, values, team, timeline |
+| `/services` | All services with detailed breakdowns |
+| `/services/[slug]` | Individual service detail pages |
+| `/portfolio` | Project showcase with category filtering |
+| `/portfolio/[slug]` | Project case studies |
+| `/blog` | Blog listing with tags and reading time |
+| `/blog/[slug]` | Individual blog posts (MDX) |
+| `/contact` | Contact form with Web3Forms integration |
 
-## Deploy on Vercel
+## Team
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Vedanth** — Co-Founder & CEO
+- **Mithun Gowda B** — Founder & COO
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact
+
+- **Email:** syntrixagency01@gmail.com
+- **Instagram:** [@syntrixagency](https://www.instagram.com/syntrixagency)
+- **Website:** [syntrixagency.vercel.app](https://syntrixagency.vercel.app)
+
+## License
+
+Proprietary. All rights reserved. See [LICENSE](LICENSE) for details.

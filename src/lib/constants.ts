@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Syntrix",
   description: "AI Agency + Marketing Agency + Software Tools — Building the future with intelligent solutions.",
-  url: "https://syntrixagency.com",
+  url: "https://syntrixagency.vercel.app",
   ogImage: "/assets/images/og.png",
   instagram: "https://www.instagram.com/syntrixagency",
 };

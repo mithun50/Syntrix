@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 import { getAllPosts } from "@/lib/mdx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://syntrixagency.com";
+  const baseUrl = "https://syntrixagency.vercel.app";
 
   const staticPages = [
     { url: baseUrl, lastModified: new Date() },

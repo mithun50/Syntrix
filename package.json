@@ -1,7 +1,10 @@
 {
   "name": "syntrix",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "AI Agency + Digital Marketing + Software Tools — Building the future with intelligent solutions.",
   "private": true,
+  "author": "Mithun Gowda B <mithungowda.b7411@gmail.com>",
+  "homepage": "https://syntrixagency.vercel.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
