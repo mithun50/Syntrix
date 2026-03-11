@@ -14,20 +14,22 @@ export function Footer() {
               AI Agency + Marketing + Software Tools.
               Building intelligent solutions for modern businesses.
             </p>
-            <a
-              href="mailto:syntrixagency01@gmail.com"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-muted hover:text-accent transition-colors"
-            >
-              <Mail size={16} /> syntrixagency01@gmail.com
-            </a>
-            <a
-              href={siteConfig.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-2 text-sm text-muted hover:text-accent transition-colors"
-            >
-              <Instagram size={16} /> @syntrixagency
-            </a>
+            <div className="flex flex-col gap-2.5 mt-4">
+              <a
+                href="mailto:syntrixagency01@gmail.com"
+                className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+              >
+                <Mail size={16} /> syntrixagency01@gmail.com
+              </a>
+              <a
+                href={siteConfig.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+              >
+                <Instagram size={16} /> @syntrixagency
+              </a>
+            </div>
           </div>
 
           <div>
