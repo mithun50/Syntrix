@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
 import { Logo } from "./Logo";
 
@@ -15,10 +15,16 @@ export function Footer() {
               Building intelligent solutions for modern businesses.
             </p>
             <a
+              href="mailto:syntrixagency01@gmail.com"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-muted hover:text-accent transition-colors"
+            >
+              <Mail size={16} /> syntrixagency01@gmail.com
+            </a>
+            <a
               href={siteConfig.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-muted hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 mt-2 text-sm text-muted hover:text-accent transition-colors"
             >
               <Instagram size={16} /> @syntrixagency
             </a>

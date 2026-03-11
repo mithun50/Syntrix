@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, Instagram, CheckCircle2 } from "lucide-react";
+import { Send, Instagram, Mail, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { siteConfig } from "@/lib/constants";
@@ -122,6 +122,17 @@ export default function ContactPage() {
             {/* Sidebar */}
             <div className="lg:col-span-2 space-y-4">
               <a
+                href="mailto:syntrixagency01@gmail.com"
+                className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:border-accent/20 transition-colors"
+              >
+                <Mail className="w-5 h-5 text-accent" />
+                <div>
+                  <p className="text-sm font-medium">Email</p>
+                  <p className="text-xs text-muted">syntrixagency01@gmail.com</p>
+                </div>
+              </a>
+
+              <a
                 href={siteConfig.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -137,7 +148,7 @@ export default function ContactPage() {
               <div className="p-4 rounded-xl border border-border bg-card">
                 <p className="text-sm font-medium mb-1">Quick response</p>
                 <p className="text-xs text-muted leading-relaxed">
-                  DM us on Instagram for the fastest response. We typically reply within a few hours.
+                  DM us on Instagram or email us. We typically reply within a few hours.
                 </p>
               </div>
             </div>
