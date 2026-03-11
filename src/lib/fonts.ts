@@ -1,12 +1,12 @@
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 
-export const spaceGrotesk = Space_Grotesk({
+export const syne = Syne({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
-export const inter = Inter({
+export const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",

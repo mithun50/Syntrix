@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Brain, MessageSquare, TrendingUp, Eye, FileText, Plug, Share2, Search, Target, Mail, Palette, BarChart, Globe, Cloud, Terminal, Smartphone, Server, Code2, Megaphone, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Brain, MessageSquare, TrendingUp, Eye, FileText, Plug, Share2, Search,
+  Target, Mail, Palette, BarChart, Globe, Cloud, Terminal, Smartphone,
+  Server, Code2, Megaphone, ArrowUpRight, CheckCircle2,
+} from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { services } from "@/data/services";
 
@@ -32,11 +36,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <PageHeader badge={service.title} title={service.title} description={service.description} />
 
       {/* Features */}
-      <section className="pb-16">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-3xl">
-            {service.features.map((feature) => (
-              <div key={feature} className="flex items-center gap-2.5 p-3 rounded-lg border border-border bg-card text-sm">
+      <section className="pb-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-start gap-6 mb-10">
+            <span className="font-mono text-[11px] text-muted tracking-widest mt-1">01</span>
+            <h2 className="text-xl font-bold font-[var(--font-heading)] tracking-tight">Key capabilities</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl ml-0 md:ml-12">
+            {service.features.map((feature, i) => (
+              <div
+                key={feature}
+                className={`flex items-center gap-3 p-4 rounded-xl border border-border bg-card text-sm animate-fade-up delay-${(i % 3) + 1}`}
+              >
                 <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
                 {feature}
               </div>
@@ -46,17 +58,27 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Sub-services */}
-      <section className="py-16 border-t border-border">
-        <div className="mx-auto max-w-6xl px-5">
-          <h2 className="text-xl font-bold font-[var(--font-heading)] mb-8">What we deliver</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {service.subServices.map((sub) => {
+      <section className="py-20 border-t border-border relative">
+        <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-6 relative">
+          <div className="flex items-start gap-6 mb-12">
+            <span className="font-mono text-[11px] text-muted tracking-widest mt-1">02</span>
+            <h2 className="text-xl font-bold font-[var(--font-heading)] tracking-tight">What we deliver</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 ml-0 md:ml-12">
+            {service.subServices.map((sub, i) => {
               const Icon = iconMap[sub.icon] || Brain;
               return (
-                <div key={sub.title} className="p-5 rounded-xl border border-border bg-card">
-                  <Icon className="w-4 h-4 text-accent mb-2.5" />
-                  <h3 className="font-semibold font-[var(--font-heading)] text-sm">{sub.title}</h3>
-                  <p className="text-xs text-muted mt-1 leading-relaxed">{sub.description}</p>
+                <div
+                  key={sub.title}
+                  className={`group p-6 rounded-2xl border border-border bg-card card-glow animate-fade-up delay-${(i % 3) + 1}`}
+                >
+                  <div className="w-9 h-9 rounded-lg border border-border flex items-center justify-center mb-4 group-hover:border-accent/30 transition-colors duration-300">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <h3 className="font-semibold font-[var(--font-heading)] text-sm tracking-tight">{sub.title}</h3>
+                  <p className="text-xs text-muted mt-2 leading-relaxed">{sub.description}</p>
                 </div>
               );
             })}
@@ -65,18 +87,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Process */}
-      <section className="py-16 border-t border-border">
-        <div className="mx-auto max-w-6xl px-5">
-          <h2 className="text-xl font-bold font-[var(--font-heading)] mb-8">Our process</h2>
-          <div className="max-w-2xl space-y-5">
-            {service.process.map((step) => (
-              <div key={step.step} className="flex gap-4 items-start">
-                <span className="w-7 h-7 rounded-full bg-accent/10 text-accent text-xs font-bold font-mono flex items-center justify-center flex-shrink-0">
-                  {step.step}
+      <section className="py-20 border-t border-border">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-start gap-6 mb-12">
+            <span className="font-mono text-[11px] text-muted tracking-widest mt-1">03</span>
+            <h2 className="text-xl font-bold font-[var(--font-heading)] tracking-tight">Our process</h2>
+          </div>
+
+          <div className="max-w-2xl ml-0 md:ml-12 space-y-0">
+            {service.process.map((step, i) => (
+              <div key={step.step} className={`flex gap-5 items-start animate-fade-up delay-${i + 1}`}>
+                <span className="w-10 h-10 rounded-xl bg-accent/10 text-accent font-mono text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {String(step.step).padStart(2, "0")}
                 </span>
-                <div className="pb-5 border-b border-border flex-1">
-                  <h3 className="font-semibold font-[var(--font-heading)] text-sm">{step.title}</h3>
-                  <p className="text-xs text-muted mt-1">{step.description}</p>
+                <div className="pb-7 border-l border-border pl-6 flex-1 relative">
+                  <span className="absolute left-0 top-3 w-1.5 h-1.5 rounded-full bg-accent -translate-x-[3.5px]" />
+                  <h3 className="font-semibold font-[var(--font-heading)] tracking-tight">{step.title}</h3>
+                  <p className="text-sm text-muted mt-1.5 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -85,17 +112,21 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* CTA */}
-      <section className="py-16 border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 text-center">
-          <h2 className="text-xl font-bold font-[var(--font-heading)]">Ready to get started?</h2>
-          <p className="mt-2 text-sm text-muted">
-            Let&apos;s discuss how our {service.title.toLowerCase()} services can help.
+      <section className="py-20 border-t border-border relative">
+        <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-6 text-center relative">
+          <h2 className="text-2xl md:text-3xl font-bold font-[var(--font-heading)] tracking-tight">
+            Ready to get started?
+          </h2>
+          <p className="mt-3 text-sm text-muted max-w-md mx-auto leading-relaxed">
+            Let&apos;s discuss how our {service.title.toLowerCase()} services can help your business grow.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 mt-5 px-5 py-2 text-sm font-medium bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors"
+            className="group inline-flex items-center gap-2 mt-7 px-7 py-3 text-sm font-semibold bg-accent text-background rounded-full hover:bg-accent/90 transition-all duration-300"
           >
-            Start a conversation <ArrowRight size={14} />
+            Start a conversation
+            <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </section>

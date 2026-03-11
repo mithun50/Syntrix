@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { projects } from "@/data/projects";
 
@@ -25,62 +25,91 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     <>
       <PageHeader badge={project.category} title={project.title} description={project.description} />
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-6xl px-5 max-w-3xl">
-          {/* Meta */}
-          <div className="grid grid-cols-3 gap-4 mb-10">
-            <div className="p-4 rounded-lg border border-border bg-card">
-              <p className="text-[10px] text-muted uppercase tracking-wider">Client</p>
-              <p className="text-sm font-medium mt-0.5">{project.client}</p>
-            </div>
-            <div className="p-4 rounded-lg border border-border bg-card">
-              <p className="text-[10px] text-muted uppercase tracking-wider">Category</p>
-              <p className="text-sm font-medium mt-0.5">{project.category}</p>
-            </div>
-            <div className="p-4 rounded-lg border border-border bg-card">
-              <p className="text-[10px] text-muted uppercase tracking-wider">Year</p>
-              <p className="text-sm font-medium mt-0.5">{project.year}</p>
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-10">
-            {project.tags.map((tag) => (
-              <span key={tag} className="text-xs px-2.5 py-1 rounded-lg border border-border text-muted">{tag}</span>
-            ))}
-          </div>
-
-          {/* Challenge & Solution */}
-          <div className="space-y-8 mb-10">
-            <div>
-              <h3 className="text-sm font-semibold font-[var(--font-heading)] text-accent mb-2">The Challenge</h3>
-              <p className="text-sm text-muted leading-relaxed">{project.challenge}</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold font-[var(--font-heading)] text-accent2 mb-2">Our Solution</h3>
-              <p className="text-sm text-muted leading-relaxed">{project.solution}</p>
-            </div>
-          </div>
-
-          {/* Results */}
-          <div className="p-6 rounded-xl border border-border bg-card mb-10">
-            <h3 className="text-sm font-semibold font-[var(--font-heading)] mb-4">Results</h3>
-            <div className="space-y-2.5">
-              {project.results.map((result) => (
-                <div key={result} className="flex items-center gap-2.5 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  {result}
+      <section className="pb-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl">
+            {/* Meta cards */}
+            <div className="grid grid-cols-3 gap-4 mb-12 animate-fade-up delay-1">
+              {[
+                { label: "Client", value: project.client },
+                { label: "Category", value: project.category },
+                { label: "Year", value: project.year },
+              ].map((meta) => (
+                <div key={meta.label} className="p-5 rounded-xl border border-border bg-card">
+                  <p className="font-mono text-[10px] text-muted uppercase tracking-widest">{meta.label}</p>
+                  <p className="text-sm font-semibold mt-1.5 font-[var(--font-heading)] tracking-tight">{meta.value}</p>
                 </div>
               ))}
             </div>
-          </div>
 
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
-          >
-            <ArrowLeft size={14} /> Back to portfolio
-          </Link>
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-12 animate-fade-up delay-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="font-mono text-xs px-3 py-1.5 rounded-full border border-border text-muted tracking-wide"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Challenge & Solution */}
+            <div className="space-y-10 mb-12">
+              <div className="animate-fade-up delay-3">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="font-mono text-[11px] text-muted tracking-widest">01</span>
+                  <h3 className="text-sm font-semibold font-[var(--font-heading)] text-accent tracking-tight">
+                    The Challenge
+                  </h3>
+                </div>
+                <p className="text-sm text-muted leading-relaxed ml-9">{project.challenge}</p>
+              </div>
+              <div className="animate-fade-up delay-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="font-mono text-[11px] text-muted tracking-widest">02</span>
+                  <h3 className="text-sm font-semibold font-[var(--font-heading)] text-accent2 tracking-tight">
+                    Our Solution
+                  </h3>
+                </div>
+                <p className="text-sm text-muted leading-relaxed ml-9">{project.solution}</p>
+              </div>
+            </div>
+
+            {/* Results */}
+            <div className="p-7 rounded-2xl border border-border bg-card mb-12 animate-fade-up delay-5">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-[11px] text-muted tracking-widest">03</span>
+                <h3 className="text-sm font-semibold font-[var(--font-heading)] tracking-tight">Results</h3>
+              </div>
+              <div className="space-y-3 ml-9">
+                {project.results.map((result) => (
+                  <div key={result} className="flex items-center gap-3 text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-accent2 flex-shrink-0" />
+                    {result}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between">
+              <Link
+                href="/portfolio"
+                className="group inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors duration-300"
+              >
+                <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" />
+                Back to portfolio
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-1.5 font-mono text-[11px] text-accent tracking-wider"
+              >
+                Start similar project
+                <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
