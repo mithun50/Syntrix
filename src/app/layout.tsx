@@ -10,6 +10,21 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/assets/logo/syntrix-logo.jpg",
+    apple: "/assets/logo/syntrix-logo.jpg",
+  },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/assets/logo/syntrix-logo.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/assets/logo/syntrix-logo.jpg"],
+  },
 };
 
 export default function RootLayout({
